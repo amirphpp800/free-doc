@@ -32,6 +32,9 @@ export function createFooter() {
 }
 
 function showPrivacyModal() {
+    const isArticlePage = window.location.pathname.includes('article.html');
+    const logoPath = isArticlePage ? '../assets/images/logo.svg' : '../assets/images/logo.svg';
+    
     const modal = document.createElement('div');
     modal.className = 'privacy-modal';
     modal.innerHTML = `
