@@ -13,9 +13,6 @@ export function createHeader() {
                 <img src="${logoPath}" alt="لوگو" class="header-logo">
                 دانشنامه آزاد - بهرام کاظمی
             </h1>
-            <nav class="header-nav">
-                <a href="${homePath}" class="nav-item" data-page="home">صفحه اصلی</a>
-            </nav>
         </div>
     `;
     

@@ -1,3 +1,23 @@
+@font-face {
+    font-family: 'IRANSans';
+    src: url('../Font/iransansdnlight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url('../Font/iransansdn.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url('../Font/iransansdnbold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
 
 * {
     margin: 0;

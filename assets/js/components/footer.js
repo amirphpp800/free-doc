@@ -1,12 +1,14 @@
-
 export function createFooter() {
     const footer = document.createElement('div');
     footer.className = 'footer';
-    
+
+    const isArticlePage = window.location.pathname.includes('article.html');
+    const logoPath = isArticlePage ? '../assets/images/logo.svg' : '../assets/images/logo.svg';
+
     footer.innerHTML = `
         <div class="footer-content">
             <p class="footer-text">
-                <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 18px;">menu_book</span>
+                <img src="${logoPath}" alt="لوگو" class="footer-logo" style="height: 24px; vertical-align: middle; margin-left: 8px;">
                 دانشنامه آزاد - بهرام کاظمی
             </p>
             <div class="footer-links">
@@ -15,7 +17,7 @@ export function createFooter() {
             <p class="footer-copyright">© ۱۴۰۴ بهرام کاظمی - تمامی حقوق محفوظ است</p>
         </div>
     `;
-    
+
     setTimeout(() => {
         const privacyLink = document.getElementById('privacy-link');
         if (privacyLink) {
@@ -25,7 +27,7 @@ export function createFooter() {
             });
         }
     }, 0);
-    
+
     return footer;
 }
 
@@ -42,63 +44,44 @@ function showPrivacyModal() {
                 </button>
             </div>
             <div class="privacy-modal-body">
-                <h3>۱. جمع‌آوری اطلاعات</h3>
-                <p>ما در دانشنامه آزاد متعهد به حفظ حریم خصوصی کاربران هستیم. این سایت به صورت ایستا طراحی شده و هیچ‌گونه اطلاعات شخصی از کاربران جمع‌آوری نمی‌کند.</p>
-                
-                <h3>۲. استفاده از کوکی‌ها</h3>
-                <p>این وب‌سایت از کوکی‌های ضروری برای بهبود عملکرد و تجربه کاربری استفاده می‌کند. این کوکی‌ها شامل:</p>
-                <ul>
-                    <li>کوکی‌های جلسه برای حفظ وضعیت کاربر</li>
-                    <li>کوکی‌های ترجیحات برای ذخیره تنظیمات شخصی</li>
-                </ul>
-                
-                <h3>۳. امنیت اطلاعات</h3>
-                <p>تمامی داده‌های سایت به صورت محلی در مرورگر شما ذخیره می‌شوند و هیچ اطلاعاتی به سرور ارسال نمی‌شود. این سایت از پروتکل HTTPS برای امنیت ارتباطات استفاده می‌کند.</p>
-                
-                <h3>۴. اشتراک‌گذاری اطلاعات با اشخاص ثالث</h3>
-                <p>ما هیچ‌گونه اطلاعات شخصی را با اشخاص ثالث به اشتراک نمی‌گذاریم. این سایت بدون استفاده از ابزارهای تحلیلی یا تبلیغاتی شخص ثالث اجرا می‌شود.</p>
-                
-                <h3>۵. حقوق کاربران</h3>
-                <p>کاربران این حق را دارند که:</p>
-                <ul>
-                    <li>هر زمان کوکی‌های مرورگر خود را پاک کنند</li>
-                    <li>از استفاده سایت خودداری کنند</li>
-                    <li>درباره نحوه استفاده از داده‌ها سوال کنند</li>
-                </ul>
-                
-                <h3>۶. محتوای سایت</h3>
-                <p>تمامی مقالات و محتوای این سایت توسط بهرام کاظمی تهیه و منتشر شده است. استفاده از محتوا با ذکر منبع آزاد است.</p>
-                
-                <h3>۷. تغییرات در سیاست حریم خصوصی</h3>
-                <p>این سیاست حریم خصوصی ممکن است به‌روزرسانی شود. هرگونه تغییر عمده در این صفحه اعلام خواهد شد.</p>
-                
-                <h3>۸. تماس با ما</h3>
-                <p>در صورت داشتن هرگونه سوال یا نگرانی درباره حریم خصوصی، می‌توانید از طریق راه‌های ارتباطی موجود در سایت با ما تماس بگیرید.</p>
-                
+                <h3>۱. درباره این سایت</h3>
+                <p>دانشنامه آزاد یک وب‌سایت ساده برای به اشتراک‌گذاری مقالات و اطلاعات است که به صورت کاملاً محلی در مرورگر شما اجرا می‌شود.</p>
+
+                <h3>۲. عدم جمع‌آوری اطلاعات</h3>
+                <p>این سایت هیچ‌گونه اطلاعات شخصی، آمار بازدید یا داده‌های کاربری را جمع‌آوری نمی‌کند. از هیچ ابزار تحلیلی یا ردیابی مانند Google Analytics استفاده نمی‌شود.</p>
+
+                <h3>۳. ذخیره‌سازی محلی</h3>
+                <p>تنظیمات شما مانند حالت تاریک/روشن فقط در مرورگر خودتان ذخیره می‌شود و به هیچ سروری ارسال نمی‌گردد.</p>
+
+                <h3>۴. محتوای سایت</h3>
+                <p>مقالات این سایت از منابع مختلف گردآوری شده و با ذکر منبع منتشر می‌شوند. استفاده از محتوا با ذکر منبع آزاد است.</p>
+
                 <div class="privacy-footer">
-                    <p><strong>آخرین به‌روزرسانی:</strong> دی ۱۴۰۴</p>
-                    <p><strong>دانشنامه آزاد - بهرام کاظمی</strong></p>
+                    <p>
+                        <img src="${logoPath}" alt="لوگو" style="height: 20px; vertical-align: middle; margin-left: 6px;">
+                        دانشنامه آزاد - بهرام کاظمی
+                    </p>
                 </div>
             </div>
         </div>
     `;
-    
+
     document.body.appendChild(modal);
-    
+
     setTimeout(() => {
         modal.classList.add('active');
     }, 10);
-    
+
     const overlay = modal.querySelector('.privacy-modal-overlay');
     const closeBtn = modal.querySelector('.privacy-modal-close');
-    
+
     const closeModal = () => {
         modal.classList.remove('active');
         setTimeout(() => {
             document.body.removeChild(modal);
         }, 300);
     };
-    
+
     overlay.addEventListener('click', closeModal);
     closeBtn.addEventListener('click', closeModal);
 }

@@ -1,9 +1,12 @@
-
 .article-page {
     max-width: 800px;
     margin: 0 auto;
     padding: 40px 20px;
     min-height: calc(100vh - 200px);
+}
+
+.article-container {
+    width: 100%;
 }
 
 .article-content {
@@ -13,67 +16,87 @@
     box-shadow: var(--shadow-md);
 }
 
-.article-page-title {
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--ios-text);
-    margin-bottom: 20px;
-    line-height: 1.4;
+.article-header-full {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--ios-border);
 }
 
-.article-page-meta {
+.article-title-full {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ios-text);
+    margin-bottom: 16px;
+    line-height: 1.5;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+.article-meta-full {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    padding-bottom: 20px;
-    margin-bottom: 24px;
-    border-bottom: 1px solid var(--ios-border);
+    margin-bottom: 16px;
     font-size: 14px;
     color: var(--ios-text-secondary);
 }
 
-.article-page-meta span {
+.article-meta-full .meta-item {
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
-.article-page-meta .material-symbols-outlined {
+.article-meta-full .material-symbols-outlined {
     font-size: 18px;
 }
 
-.article-page-tags {
+.article-tags-full {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
-    margin-bottom: 32px;
 }
 
-.article-page-body {
-    font-size: 17px;
-    line-height: 1.8;
+.article-body {
+    font-family: 'IRANSans', 'Vazirmatn', sans-serif;
+    font-size: 16px;
+    line-height: 2;
     color: var(--ios-text);
+    text-align: justify;
 }
 
-.article-page-body h2 {
-    font-size: 24px;
+.article-body h2 {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 22px;
     font-weight: 600;
     margin-top: 32px;
     margin-bottom: 16px;
     color: var(--ios-text);
 }
 
-.article-page-body p {
-    margin-bottom: 20px;
+.article-body h3 {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    color: var(--ios-text);
 }
 
-.article-page-body ul {
+.article-body p {
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.article-body ul,
+.article-body ol {
     margin-right: 24px;
     margin-bottom: 20px;
+    padding-right: 16px;
 }
 
-.article-page-body li {
-    margin-bottom: 8px;
+.article-body li {
+    margin-bottom: 10px;
+    line-height: 1.9;
 }
 
 .back-button {
@@ -101,4 +124,22 @@
 
 .back-button:active {
     transform: translateX(0) scale(0.98);
+}
+
+@media (max-width: 768px) {
+    .article-page {
+        padding: 20px 16px;
+    }
+    
+    .article-content {
+        padding: 20px;
+    }
+    
+    .article-title-full {
+        font-size: 22px;
+    }
+    
+    .article-body {
+        font-size: 15px;
+    }
 }

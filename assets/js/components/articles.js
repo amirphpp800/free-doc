@@ -9,6 +9,18 @@ export function createArticles(articles, onArticleClick) {
     const list = document.createElement('div');
     list.className = 'articles-list';
 
+    if (articles.length === 0) {
+        const emptyMessage = document.createElement('div');
+        emptyMessage.className = 'empty-message';
+        emptyMessage.innerHTML = `
+            <span class="material-symbols-outlined" style="font-size: 48px; color: #9ca3af; margin-bottom: 16px;">article</span>
+            <p style="color: #6b7280; font-size: 16px;">هنوز مقاله‌ای منتشر نشده است</p>
+        `;
+        emptyMessage.style.textAlign = 'center';
+        emptyMessage.style.padding = '48px 24px';
+        list.appendChild(emptyMessage);
+    }
+
     articles.forEach((article, index) => {
         const card = document.createElement('div');
         card.className = 'article-card slide-in';
@@ -39,13 +51,13 @@ export function createArticles(articles, onArticleClick) {
 
         card.style.cursor = 'pointer';
         card.addEventListener('click', () => {
-        window.location.href = `pages/article.html?id=${article.id}`;
-    });
+            window.location.href = `article.html?id=${article.id}`;
+        });
 
         const readMoreBtn = card.querySelector('.read-more-btn');
         readMoreBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            window.location.href = `pages/article.html?id=${article.id}`;
+            window.location.href = `article.html?id=${article.id}`;
         });
 
         list.appendChild(card);

@@ -83,10 +83,12 @@
     font-size: 16px;
     background: transparent;
     color: var(--ios-text);
+    font-family: 'Vazirmatn', sans-serif;
 }
 
 .search-input::placeholder {
     color: var(--ios-text-secondary);
+    font-family: 'Vazirmatn', sans-serif;
 }
 
 /* Categories Component */
