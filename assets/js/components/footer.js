@@ -32,10 +32,10 @@ export function createFooter() {
 }
 
 function showPrivacyModal() {
-    const isArticlePage = window.location.pathname.includes('article.html');
-    const logoPath = isArticlePage ? '../assets/images/logo.svg' : '../assets/images/logo.svg';
-    
     const modal = document.createElement('div');
+    
+    const isArticlePage = window.location.pathname.includes('article.html');
+    const logoPath = isArticlePage ? '../assets/images/logo.svg' : 'assets/images/logo.svg';
     modal.className = 'privacy-modal';
     modal.innerHTML = `
         <div class="privacy-modal-overlay"></div>

@@ -28,7 +28,7 @@
     color: var(--ios-text);
     margin-bottom: 16px;
     line-height: 1.5;
-    font-family: 'Vazirmatn', sans-serif;
+    font-family: 'Title', 'IRANSans', sans-serif;
 }
 
 .article-meta-full {
@@ -65,7 +65,7 @@
 }
 
 .article-body h2 {
-    font-family: 'Vazirmatn', sans-serif;
+    font-family: 'Title', 'IRANSans', sans-serif;
     font-size: 22px;
     font-weight: 600;
     margin-top: 32px;
@@ -74,7 +74,7 @@
 }
 
 .article-body h3 {
-    font-family: 'Vazirmatn', sans-serif;
+    font-family: 'Title', 'IRANSans', sans-serif;
     font-size: 18px;
     font-weight: 600;
     margin-top: 24px;
@@ -114,7 +114,7 @@
     transition: all 0.2s;
     margin-bottom: 24px;
     text-decoration: none;
-    font-family: 'Vazirmatn', sans-serif;
+    font-family: 'IRANSans', sans-serif;
 }
 
 .back-button:hover {

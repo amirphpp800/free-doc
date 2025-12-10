@@ -83,12 +83,12 @@
     font-size: 16px;
     background: transparent;
     color: var(--ios-text);
-    font-family: 'Vazirmatn', sans-serif;
+    font-family: 'IRANSans', sans-serif;
 }
 
 .search-input::placeholder {
     color: var(--ios-text-secondary);
-    font-family: 'Vazirmatn', sans-serif;
+    font-family: 'IRANSans', sans-serif;
 }
 
 /* Categories Component */
@@ -189,6 +189,7 @@
     font-weight: 600;
     color: var(--ios-text);
     margin-bottom: 8px;
+    font-family: 'Title', 'IRANSans', sans-serif;
 }
 
 .article-meta {
@@ -241,7 +242,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    font-family: 'Vazirmatn', sans-serif;
+    font-family: 'IRANSans', sans-serif;
 }
 
 .read-more-btn:hover {

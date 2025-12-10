@@ -37,12 +37,23 @@ class Encyclopedia {
     }
 
     handleSearch(query) {
+        const searchQuery = query.trim().toLowerCase();
+        
+        if (searchQuery === '') {
+            this.filteredArticles = this.articles;
+            this.render();
+            return;
+        }
+
         this.showLoading();
         setTimeout(() => {
             this.filteredArticles = this.articles.filter(article => 
-                article.title.includes(query) ||
-                article.excerpt.includes(query) ||
-                article.tags.some(tag => tag.includes(query))
+                article.title.toLowerCase().includes(searchQuery) ||
+                article.excerpt.toLowerCase().includes(searchQuery) ||
+                article.content.toLowerCase().includes(searchQuery) ||
+                article.author.toLowerCase().includes(searchQuery) ||
+                article.category.toLowerCase().includes(searchQuery) ||
+                article.tags.some(tag => tag.toLowerCase().includes(searchQuery))
             );
             this.hideLoading();
             this.render();
