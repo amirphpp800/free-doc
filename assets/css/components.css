@@ -30,6 +30,12 @@
 .header-logo {
     width: 32px;
     height: 32px;
+    transition: filter 0.3s ease;
+}
+
+[data-theme="dark"] .header-logo,
+[data-theme="dark"] .footer-logo {
+    filter: invert(1) brightness(2);
 }
 
 .header-nav {
@@ -89,6 +95,28 @@
 .search-input::placeholder {
     color: var(--ios-text-secondary);
     font-family: 'IRANSans', sans-serif;
+}
+
+.search-clear {
+    background: none;
+    border: none;
+    color: var(--ios-text-secondary);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.search-clear:hover {
+    background-color: var(--ios-bg);
+    color: var(--ios-text);
+}
+
+.search-clear .material-symbols-outlined {
+    font-size: 18px;
 }
 
 /* Categories Component */
@@ -427,6 +455,64 @@
 
 .privacy-footer p strong {
     color: var(--ios-text);
+}
+
+/* Theme Toggle Switch */
+.checkbox-wrapper-54 input[type="checkbox"] {
+    visibility: hidden;
+    display: none;
+}
+
+.checkbox-wrapper-54 *,
+.checkbox-wrapper-54 ::after,
+.checkbox-wrapper-54 ::before {
+    box-sizing: border-box;
+}
+
+.checkbox-wrapper-54 .switch {
+    --width-of-switch: 3.5em;
+    --height-of-switch: 2em;
+    --size-of-icon: 1.4em;
+    --slider-offset: 0.3em;
+    position: relative;
+    width: var(--width-of-switch);
+    height: var(--height-of-switch);
+    display: inline-block;
+}
+
+.checkbox-wrapper-54 .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f4f4f5;
+    transition: .4s;
+    border-radius: 30px;
+}
+
+.checkbox-wrapper-54 .slider:before {
+    position: absolute;
+    content: "";
+    height: var(--size-of-icon, 1.4em);
+    width: var(--size-of-icon, 1.4em);
+    border-radius: 20px;
+    left: var(--slider-offset, 0.3em);
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+    transition: .4s;
+}
+
+.checkbox-wrapper-54 input:checked + .slider {
+    background-color: #303136;
+}
+
+.checkbox-wrapper-54 input:checked + .slider:before {
+    left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
+    background: #303136;
+    box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
 }
 
 /* Responsive */

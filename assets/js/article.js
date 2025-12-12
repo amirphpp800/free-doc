@@ -1,6 +1,8 @@
-import { createHeader } from './components/header.js';
+import { createHeader, initTheme } from './components/header.js';
 import { createFooter } from './components/footer.js';
 import { articles } from './data/sampleData.js';
+
+initTheme();
 
 class ArticlePage {
     constructor() {
@@ -54,7 +56,7 @@ class ArticlePage {
 
         main.innerHTML = `
             <div class="article-container">
-                <a href="index.html" class="back-button">
+                <a href="/" class="back-button">
                     <span class="material-symbols-outlined">arrow_forward</span>
                     بازگشت
                 </a>

@@ -51,13 +51,13 @@ export function createArticles(articles, onArticleClick) {
 
         card.style.cursor = 'pointer';
         card.addEventListener('click', () => {
-            window.location.href = `article.html?id=${article.id}`;
+            window.location.href = `/article?id=${article.id}`;
         });
 
         const readMoreBtn = card.querySelector('.read-more-btn');
         readMoreBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            window.location.href = `article.html?id=${article.id}`;
+            window.location.href = `/article?id=${article.id}`;
         });
 
         list.appendChild(card);

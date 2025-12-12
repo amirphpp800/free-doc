@@ -1,9 +1,11 @@
 
-import { createHeader } from './components/header.js';
+import { createHeader, initTheme } from './components/header.js';
 import { createSearch } from './components/search.js';
 import { createArticles } from './components/articles.js';
 import { createFooter } from './components/footer.js';
 import { articles } from './data/sampleData.js';
+
+initTheme();
 
 class Encyclopedia {
     constructor() {

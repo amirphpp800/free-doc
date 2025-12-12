@@ -2,13 +2,12 @@ export function createFooter() {
     const footer = document.createElement('div');
     footer.className = 'footer';
 
-    const isArticlePage = window.location.pathname.includes('article.html');
-    const logoPath = isArticlePage ? '../assets/images/logo.svg' : '../assets/images/logo.svg';
+    const logoPath = '/assets/images/logo.svg';
 
     footer.innerHTML = `
         <div class="footer-content">
             <p class="footer-text">
-                <img src="${logoPath}" alt="لوگو" class="footer-logo" style="height: 24px; vertical-align: middle; margin-left: 8px;">
+                <img src="${logoPath}" alt="لوگو" class="footer-logo" style="height: 24px; vertical-align: middle; margin-left: 8px; transition: filter 0.3s ease;">
                 دانشنامه آزاد - بهرام کاظمی
             </p>
             <div class="footer-links">
@@ -34,8 +33,7 @@ export function createFooter() {
 function showPrivacyModal() {
     const modal = document.createElement('div');
     
-    const isArticlePage = window.location.pathname.includes('article.html');
-    const logoPath = isArticlePage ? '../assets/images/logo.svg' : 'assets/images/logo.svg';
+    const logoPath = '/assets/images/logo.svg';
     modal.className = 'privacy-modal';
     modal.innerHTML = `
         <div class="privacy-modal-overlay"></div>
@@ -61,7 +59,7 @@ function showPrivacyModal() {
 
                 <div class="privacy-footer">
                     <p>
-                        <img src="${logoPath}" alt="لوگو" style="height: 20px; vertical-align: middle; margin-left: 6px;">
+                        <img src="${logoPath}" alt="لوگو" class="footer-logo" style="height: 20px; vertical-align: middle; margin-left: 6px;">
                         دانشنامه آزاد - بهرام کاظمی
                     </p>
                 </div>
