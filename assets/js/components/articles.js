@@ -26,38 +26,33 @@ export function createArticles(articles, onArticleClick) {
         card.className = 'article-card slide-in';
         card.style.animationDelay = `${index * 0.05}s`;
 
-        const tagsHTML = article.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+        const coverImageHTML = article.coverImage 
+            ? `<div class="article-cover"><img src="${article.coverImage}" alt="${article.title}"></div>` 
+            : '';
 
         card.innerHTML = `
-            <div class="article-header">
-                <div>
-                    <h3 class="article-title">${article.title}</h3>
-                    <div class="article-meta">
-                        <span><span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle;">person</span> ${article.author}</span>
-                        <span><span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle;">calendar_today</span> ${article.date}</span>
-                        <span><span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle;">folder</span> ${article.category}</span>
-                    </div>
+            ${coverImageHTML}
+            <div class="article-content-wrapper">
+                <h3 class="article-title">${article.title}</h3>
+                <p class="article-excerpt">${article.excerpt}</p>
+                <div class="article-actions">
+                    <button class="read-more-btn">
+                        ادامه مطلب
+                        <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">arrow_back</span>
+                    </button>
                 </div>
-            </div>
-            <p class="article-excerpt">${article.excerpt}</p>
-            <div class="article-tags">${tagsHTML}</div>
-            <div class="article-actions">
-                <button class="read-more-btn">
-                    ادامه مطلب
-                    <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">arrow_back</span>
-                </button>
             </div>
         `;
 
         card.style.cursor = 'pointer';
         card.addEventListener('click', () => {
-            window.location.href = `/article?id=${article.id}`;
+            window.location.href = `/article/?id=${article.id}`;
         });
 
         const readMoreBtn = card.querySelector('.read-more-btn');
         readMoreBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            window.location.href = `/article?id=${article.id}`;
+            window.location.href = `/article/?id=${article.id}`;
         });
 
         list.appendChild(card);
