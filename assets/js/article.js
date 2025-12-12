@@ -36,6 +36,25 @@ class ArticlePage {
         return parseInt(urlParams.get('id'));
     }
 
+    calculateReadTime(content) {
+        const text = content.replace(/<[^>]*>/g, '');
+        const wordCount = text.trim().split(/\s+/).length;
+        const readTime = Math.ceil(wordCount / 150);
+        return readTime < 1 ? 1 : readTime;
+    }
+
+    setupReadingProgress() {
+        const progressBar = document.querySelector('.reading-progress-bar');
+        if (!progressBar) return;
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            progressBar.style.width = `${Math.min(progress, 100)}%`;
+        });
+    }
+
     render() {
         const articleId = this.getArticleIdFromURL();
         const article = articles.find(a => a.id === articleId);
@@ -48,6 +67,13 @@ class ArticlePage {
         this.app.innerHTML = '';
         this.app.classList.add('page-transition');
 
+        const readTime = this.calculateReadTime(article.content);
+
+        const progressBar = document.createElement('div');
+        progressBar.className = 'reading-progress';
+        progressBar.innerHTML = '<div class="reading-progress-bar"></div>';
+        this.app.appendChild(progressBar);
+
         const header = createHeader();
         this.app.appendChild(header);
 
@@ -56,11 +82,6 @@ class ArticlePage {
 
         main.innerHTML = `
             <div class="article-container">
-                <a href="/" class="back-button">
-                    <span class="material-symbols-outlined">arrow_forward</span>
-                    بازگشت
-                </a>
-
                 <article class="article-content">
                     <header class="article-header-full">
                         <h1 class="article-title-full">${article.title}</h1>
@@ -77,6 +98,10 @@ class ArticlePage {
                         <div class="article-tags-full">
                             ${article.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                         </div>
+                        <div class="estimated-read-time">
+                            <span class="material-symbols-outlined">schedule</span>
+                            ${readTime} دقیقه مطالعه
+                        </div>
                     </header>
 
                     <div class="article-body">
@@ -88,8 +113,19 @@ class ArticlePage {
 
         this.app.appendChild(main);
 
+        const backButton = document.createElement('a');
+        backButton.href = '/home';
+        backButton.className = 'back-button';
+        backButton.innerHTML = `
+            <span class="material-symbols-outlined">arrow_forward</span>
+            بازگشت
+        `;
+        this.app.appendChild(backButton);
+
         const footer = createFooter();
         this.app.appendChild(footer);
+
+        this.setupReadingProgress();
     }
 }
 
