@@ -63,7 +63,7 @@ class Encyclopedia {
     }
 
     handleArticleClick(article) {
-        window.location.href = `article.html?id=${article.id}`;
+        window.location.href = `/article/?id=${article.id}`;
     }
 
     render() {
