@@ -43,23 +43,30 @@ class Encyclopedia {
         
         if (searchQuery === '') {
             this.filteredArticles = this.articles;
-            this.render();
+            this.updateArticles();
             return;
         }
 
-        this.showLoading();
-        setTimeout(() => {
-            this.filteredArticles = this.articles.filter(article => 
-                article.title.toLowerCase().includes(searchQuery) ||
-                article.excerpt.toLowerCase().includes(searchQuery) ||
-                article.content.toLowerCase().includes(searchQuery) ||
-                article.author.toLowerCase().includes(searchQuery) ||
-                article.category.toLowerCase().includes(searchQuery) ||
-                article.tags.some(tag => tag.toLowerCase().includes(searchQuery))
+        this.filteredArticles = this.articles.filter(article => 
+            article.title.toLowerCase().includes(searchQuery) ||
+            article.excerpt.toLowerCase().includes(searchQuery) ||
+            article.content.toLowerCase().includes(searchQuery) ||
+            article.author.toLowerCase().includes(searchQuery) ||
+            article.category.toLowerCase().includes(searchQuery) ||
+            article.tags.some(tag => tag.toLowerCase().includes(searchQuery))
+        );
+        this.updateArticles();
+    }
+
+    updateArticles() {
+        const existingArticles = this.app.querySelector('.articles-container');
+        if (existingArticles) {
+            const newArticlesSection = createArticles(
+                this.filteredArticles, 
+                this.handleArticleClick.bind(this)
             );
-            this.hideLoading();
-            this.render();
-        }, 300);
+            existingArticles.replaceWith(newArticlesSection);
+        }
     }
 
     handleArticleClick(article) {
@@ -94,3 +101,4 @@ class Encyclopedia {
 document.addEventListener('DOMContentLoaded', () => {
     new Encyclopedia();
 });
+
