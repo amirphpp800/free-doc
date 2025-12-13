@@ -1,0 +1,2 @@
+# Netlify redirects - handle SPA-style routing if needed
+# Currently this is a static site with folder-based routing, so minimal config needed
