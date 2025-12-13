@@ -101,4 +101,3 @@ class Encyclopedia {
 document.addEventListener('DOMContentLoaded', () => {
     new Encyclopedia();
 });
-
