@@ -119,6 +119,101 @@
     font-size: 18px;
 }
 
+.search-box.focused {
+    border-color: var(--ios-blue);
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--ios-card-bg);
+    border: 1px solid var(--ios-border);
+    border-radius: 12px;
+    margin-top: 8px;
+    box-shadow: var(--shadow-lg);
+    z-index: 100;
+    max-height: 320px;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.2s ease;
+}
+
+.search-suggestions.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+    border-bottom: 1px solid var(--ios-border);
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover,
+.suggestion-item.selected {
+    background-color: var(--ios-bg);
+}
+
+.suggestion-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.suggestion-icon {
+    color: var(--ios-blue);
+    font-size: 20px;
+}
+
+.suggestion-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.suggestion-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ios-text);
+}
+
+.suggestion-title mark {
+    background-color: rgba(0, 122, 255, 0.2);
+    color: var(--ios-blue);
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+.suggestion-excerpt {
+    font-size: 12px;
+    color: var(--ios-text-secondary);
+}
+
+.suggestion-arrow {
+    color: var(--ios-text-secondary);
+    font-size: 18px;
+}
+
+.search-container {
+    margin-bottom: 32px;
+    position: relative;
+}
+
 /* Categories Component */
 .categories-container {
     margin-bottom: 32px;
@@ -303,45 +398,128 @@
 .footer {
     background-color: var(--ios-card-bg);
     border-top: 1px solid var(--ios-border);
-    padding: 32px 20px;
+    padding: 48px 20px 32px;
     margin-top: auto;
 }
 
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
 }
 
-.footer-text {
-    color: var(--ios-text-secondary);
-    font-size: 14px;
-    margin-bottom: 16px;
+.footer-main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 48px;
+    margin-bottom: 32px;
 }
 
-.footer-links {
+.footer-brand {
     display: flex;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-logo {
+    height: 32px;
+    width: 32px;
+    transition: filter 0.3s ease;
+}
+
+.footer-brand-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ios-text);
+}
+
+.footer-description {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ios-text-secondary);
+}
+
+.footer-sections {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-column-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ios-text);
+    margin-bottom: 4px;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-list li {
+    margin: 0;
 }
 
 .footer-link {
-    color: var(--ios-blue);
+    color: var(--ios-text-secondary);
     text-decoration: none;
     font-size: 14px;
-    transition: opacity 0.2s;
+    transition: color 0.2s;
     cursor: pointer;
 }
 
 .footer-link:hover {
-    opacity: 0.7;
+    color: var(--ios-blue);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--ios-border);
+    padding-top: 24px;
+    text-align: center;
 }
 
 .footer-copyright {
     color: var(--ios-text-secondary);
     font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    
+    .footer-sections {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+    
+    .footer-brand {
+        text-align: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-sections {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Privacy Modal */
@@ -569,5 +747,204 @@
     .article-excerpt {
         font-size: 13px;
         -webkit-line-clamp: 2;
+    }
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 32px;
+    padding: 16px 0;
+}
+
+.pagination-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--ios-border);
+    border-radius: 10px;
+    background-color: var(--ios-card-bg);
+    color: var(--ios-text);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: var(--ios-blue);
+    color: white;
+    border-color: var(--ios-blue);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pagination-btn .material-symbols-outlined {
+    font-size: 20px;
+}
+
+.pagination-numbers {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pagination-page {
+    min-width: 40px;
+    height: 40px;
+    border: 1px solid var(--ios-border);
+    border-radius: 10px;
+    background-color: var(--ios-card-bg);
+    color: var(--ios-text);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'IRANSans', sans-serif;
+}
+
+.pagination-page:hover:not(.active) {
+    background-color: var(--ios-bg);
+}
+
+.pagination-page.active {
+    background-color: var(--ios-blue);
+    color: white;
+    border-color: var(--ios-blue);
+}
+
+.pagination-dots {
+    color: var(--ios-text-secondary);
+    padding: 0 4px;
+}
+
+@media (max-width: 480px) {
+    .pagination {
+        gap: 8px;
+    }
+    
+    .pagination-btn,
+    .pagination-page {
+        width: 36px;
+        height: 36px;
+        font-size: 13px;
+    }
+    
+    .pagination-numbers {
+        gap: 4px;
+    }
+}
+
+/* Page Template Styles */
+.page-hero {
+    text-align: center;
+    padding: 48px 24px;
+    margin-bottom: 32px;
+}
+
+.page-icon {
+    font-size: 64px;
+    color: var(--ios-blue);
+    margin-bottom: 16px;
+    display: block;
+}
+
+.page-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ios-text);
+    margin-bottom: 12px;
+    font-family: 'Title', 'IRANSans', sans-serif;
+}
+
+.page-description {
+    font-size: 16px;
+    color: var(--ios-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.coming-soon-container {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    margin-bottom: 48px;
+}
+
+.coming-soon-card {
+    background-color: var(--ios-card-bg);
+    border: 1px solid var(--ios-border);
+    border-radius: 20px;
+    padding: 48px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: var(--shadow-md);
+}
+
+.coming-soon-icon {
+    font-size: 48px;
+    color: var(--ios-blue);
+    margin-bottom: 16px;
+}
+
+.coming-soon-card h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--ios-text);
+    margin-bottom: 12px;
+}
+
+.coming-soon-card p {
+    font-size: 15px;
+    color: var(--ios-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.back-home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--ios-blue);
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.back-home-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.back-home-btn .material-symbols-outlined {
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        padding: 32px 16px;
+    }
+    
+    .page-icon {
+        font-size: 48px;
+    }
+    
+    .page-title {
+        font-size: 24px;
+    }
+    
+    .coming-soon-card {
+        padding: 32px 24px;
     }
 }

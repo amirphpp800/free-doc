@@ -3,25 +3,35 @@ import { createHeader, initTheme } from './components/header.js';
 import { createSearch } from './components/search.js';
 import { createArticles } from './components/articles.js';
 import { createFooter } from './components/footer.js';
-import { articles } from './data/sampleData.js';
+import { loadArticles, articles as fallbackArticles } from './data/sampleData.js';
 
 initTheme();
 
 class Encyclopedia {
     constructor() {
         this.app = document.getElementById('app');
-        this.articles = articles;
-        this.filteredArticles = articles;
+        this.articles = [];
+        this.filteredArticles = [];
         this.isLoading = false;
+        this.currentPage = 1;
+        this.articlesPerPage = 6;
         this.init();
     }
 
-    init() {
+    async init() {
         this.showLoading();
-        setTimeout(() => {
-            this.hideLoading();
-            this.render();
-        }, 500);
+        try {
+            this.articles = await loadArticles();
+            if (this.articles.length === 0) {
+                this.articles = fallbackArticles;
+            }
+        } catch (error) {
+            console.error('Error loading articles:', error);
+            this.articles = fallbackArticles;
+        }
+        this.filteredArticles = this.articles;
+        this.hideLoading();
+        this.render();
     }
 
     showLoading() {
@@ -40,6 +50,7 @@ class Encyclopedia {
 
     handleSearch(query) {
         const searchQuery = query.trim().toLowerCase();
+        this.currentPage = 1;
         
         if (searchQuery === '') {
             this.filteredArticles = this.articles;
@@ -58,12 +69,21 @@ class Encyclopedia {
         this.updateArticles();
     }
 
+    handlePageChange(page) {
+        this.currentPage = page;
+        this.updateArticles();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     updateArticles() {
         const existingArticles = this.app.querySelector('.articles-container');
         if (existingArticles) {
             const newArticlesSection = createArticles(
                 this.filteredArticles, 
-                this.handleArticleClick.bind(this)
+                this.handleArticleClick.bind(this),
+                this.currentPage,
+                this.articlesPerPage,
+                this.handlePageChange.bind(this)
             );
             existingArticles.replaceWith(newArticlesSection);
         }
@@ -82,12 +102,15 @@ class Encyclopedia {
 
         const main = document.createElement('main');
 
-        const search = createSearch(this.handleSearch.bind(this));
+        const search = createSearch(this.handleSearch.bind(this), this.articles);
         main.appendChild(search);
 
         const articlesSection = createArticles(
             this.filteredArticles, 
-            this.handleArticleClick.bind(this)
+            this.handleArticleClick.bind(this),
+            this.currentPage,
+            this.articlesPerPage,
+            this.handlePageChange.bind(this)
         );
         main.appendChild(articlesSection);
 
