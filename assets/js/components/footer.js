@@ -6,8 +6,8 @@ export function createFooter() {
 
     footer.innerHTML = `
         <div class="footer-content">
-            <div class="footer-main">
-                <div class="footer-brand">
+            <div class="footer-main-compact">
+                <div class="footer-brand-compact">
                     <div class="footer-logo-section">
                         <img src="${logoPath}" alt="لوگو" class="footer-logo">
                         <span class="footer-brand-name">دانشنامه آزاد</span>
@@ -15,37 +15,30 @@ export function createFooter() {
                     <p class="footer-description">منبعی آزاد برای آگاهی‌رسانی درباره وضعیت اینترنت، حقوق دیجیتال و فناوری در ایران</p>
                 </div>
                 
-                <div class="footer-sections">
-                    <div class="footer-column">
+                <div class="footer-links-row">
+                    <div class="footer-section-inline">
                         <h4 class="footer-column-title">صفحات</h4>
-                        <ul class="footer-list">
+                        <ul class="footer-list-inline">
                             <li><a href="/home" class="footer-link">صفحه اصلی</a></li>
                             <li><a href="#" class="footer-link" id="privacy-link">حریم خصوصی</a></li>
                             <li><a href="/pages/iran-off.html" class="footer-link">ایران در خاموشی</a></li>
                             <li><a href="/pages/bpb-guide.html" class="footer-link">راهنمای BPB Panel</a></li>
+                            <li><a href="/pages/internet-toolkit.html" class="footer-link">جعبه‌ابزار اینترنت</a></li>
+                            <li><a href="/pages/internet-disruption-toolkit.html" class="footer-link">جعبه‌ابزار اختلال</a></li>
                         </ul>
                     </div>
                     
-                    <div class="footer-column">
-                        <h4 class="footer-column-title">منابع و ابزارها</h4>
-                        <ul class="footer-list">
-                            <li><a href="/pages/internet-toolkit.html" class="footer-link">جعبه‌ابزار اینترنت</a></li>
-                            <li><a href="/pages/internet-disruption-toolkit.html" class="footer-link">جعبه‌ابزار اختلال</a></li>
-                            <li><a href="https://fa.wikipedia.org/" target="_blank" class="footer-link">ویکی‌پدیا فارسی</a></li>
-                        </ul>
-                    </div>
-
-                <div class="footer-column footer-column-wide">
-                    <h4 class="footer-column-title">ویکی</h4>
-                    <ul class="footer-list footer-orgs-grid">
-    <li><a href="https://cra.ir/" target="_blank" class="footer-link footer-link-small">سازمان تنظیم مقررات و ارتباطات رادیویی</a></li>
-    <li><a href="https://senf.ir/" target="_blank" class="footer-link footer-link-small">سازمان نظام صنفی رایانه‌ای</a></li>
-    <li><a href="https://sccr.ir/" target="_blank" class="footer-link footer-link-small">شورای عالی فضای مجازی</a></li>
-    <li><a href="https://www.irib.ir/" target="_blank" class="footer-link footer-link-small">صدا و سیما</a></li>
-    <li><a href="https://www.parliran.ir/" target="_blank" class="footer-link footer-link-small">مجلس شورای اسلامی</a></li>
-    <li><a href="https://rc.majlis.ir/" target="_blank" class="footer-link footer-link-small">مرکز پژوهش‌های مجلس</a></li>
-    <li><a href="https://www.farhang.gov.ir/" target="_blank" class="footer-link footer-link-small">وزارت ارشاد و فرهنگ اسلامی</a></li>
-    <li><a href="https://www.mimt.gov.ir/" target="_blank" class="footer-link footer-link-small">وزارت صنعت، معدن و تجارت</a></li>
+                    <div class="footer-section-inline">
+                        <h4 class="footer-column-title">ویکی</h4>
+                        <ul class="footer-list-inline footer-wiki-list">
+                            <li><a href="https://cra.ir/" target="_blank" class="footer-link">سازمان تنظیم مقررات</a></li>
+                            <li><a href="https://senf.ir/" target="_blank" class="footer-link">نظام صنفی رایانه‌ای</a></li>
+                            <li><a href="https://sccr.ir/" target="_blank" class="footer-link">شورای عالی فضای مجازی</a></li>
+                            <li><a href="https://www.irib.ir/" target="_blank" class="footer-link">صدا و سیما</a></li>
+                            <li><a href="https://www.parliran.ir/" target="_blank" class="footer-link">مجلس شورای اسلامی</a></li>
+                            <li><a href="https://rc.majlis.ir/" target="_blank" class="footer-link">پژوهش‌های مجلس</a></li>
+                            <li><a href="https://www.farhang.gov.ir/" target="_blank" class="footer-link">وزارت ارشاد</a></li>
+                            <li><a href="https://www.mimt.gov.ir/" target="_blank" class="footer-link">وزارت صمت</a></li>
                         </ul>
                     </div>
                 </div>

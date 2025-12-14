@@ -60,20 +60,32 @@
     --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
+[data-theme="dark"] ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
 [data-theme="dark"] ::-webkit-scrollbar-track {
     background: var(--ios-bg);
+    border-radius: 10px;
 }
 
 [data-theme="dark"] ::-webkit-scrollbar-thumb {
     background: #3a3a3c;
     border: 2px solid var(--ios-bg);
+    border-radius: 10px;
 }
 
 [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
     background: #58585c;
 }
 
+[data-theme="dark"] ::-webkit-scrollbar-corner {
+    background: var(--ios-bg);
+}
+
 [data-theme="dark"] * {
+    scrollbar-width: thin;
     scrollbar-color: #3a3a3c var(--ios-bg);
 }
 

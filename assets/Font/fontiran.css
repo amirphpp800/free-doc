@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'AbarLowFaNum';
+    src: url('iransansdnlight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AbarLowFaNum';
+    src: url('iransansdn.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AbarLowFaNum';
+    src: url('iransansdnbold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AbarMidFaNum';
+    src: url('iransansdn.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AbarMidFaNum';
+    src: url('iransansdnbold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url('iransansdnlight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url('iransansdn.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url('iransansdnbold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Title';
+    src: url('title.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
