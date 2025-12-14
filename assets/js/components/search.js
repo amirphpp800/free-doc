@@ -80,9 +80,17 @@ export function createSearch(onSearch, articles = []) {
         });
     }
     
+    function sanitizeHTML(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
     function highlightMatch(text, query) {
-        const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
-        return text.replace(regex, '<mark>$1</mark>');
+        const sanitizedText = sanitizeHTML(text);
+        const sanitizedQuery = sanitizeHTML(query);
+        const regex = new RegExp(`(${escapeRegex(sanitizedQuery)})`, 'gi');
+        return sanitizedText.replace(regex, '<mark>$1</mark>');
     }
     
     function escapeRegex(string) {

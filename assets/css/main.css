@@ -60,12 +60,21 @@
     --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: var(--ios-bg);
+}
+
 [data-theme="dark"] ::-webkit-scrollbar-thumb {
     background: #3a3a3c;
+    border: 2px solid var(--ios-bg);
 }
 
 [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
-    background: #48484a;
+    background: #58585c;
+}
+
+[data-theme="dark"] * {
+    scrollbar-color: #3a3a3c var(--ios-bg);
 }
 
 .material-symbols-outlined {

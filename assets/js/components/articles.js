@@ -1,3 +1,10 @@
+function sanitizeHTML(str) {
+    if (!str) return '';
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
 export function createArticles(articles, onArticleClick, currentPage = 1, articlesPerPage = 6, onPageChange = null) {
     const container = document.createElement('div');
     container.className = 'articles-container fade-in';
@@ -32,14 +39,14 @@ export function createArticles(articles, onArticleClick, currentPage = 1, articl
         card.style.animationDelay = `${index * 0.05}s`;
 
         const coverImageHTML = article.coverImage 
-            ? `<div class="article-cover"><img src="${article.coverImage}" alt="${article.title}"></div>` 
+            ? `<div class="article-cover"><img src="${sanitizeHTML(article.coverImage)}" alt="${sanitizeHTML(article.title)}"></div>` 
             : '';
 
         card.innerHTML = `
             ${coverImageHTML}
             <div class="article-content-wrapper">
-                <h3 class="article-title">${article.title}</h3>
-                <p class="article-excerpt">${article.excerpt}</p>
+                <h3 class="article-title">${sanitizeHTML(article.title)}</h3>
+                <p class="article-excerpt">${sanitizeHTML(article.excerpt)}</p>
                 <div class="article-actions">
                     <button class="read-more-btn">
                         ادامه مطلب
