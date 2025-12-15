@@ -11,12 +11,417 @@
     <link rel="shortcut icon" href="/assets/images/logo.svg">
     
     <!-- Fonts -->
-    <link rel="stylesheet" href="../assets/Font/fontiran.css">
+    <link rel="stylesheet" href="/assets/Font/fontiran.css">
     
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/bpb-guide.css">
+    <!-- Base Styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'IRANSans', 'AbarLowFaNum', Arial, sans-serif;
+            background: #f5f5f5;
+            color: #1a1a1a;
+            min-height: 100vh;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .bpb-guide-page {
+            min-height: 100vh;
+            padding-top: 1rem;
+        }
+
+        .bpb-container {
+            padding: 2rem 1.5rem;
+        }
+
+        .bpb-guide-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .bpb-sidebar {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.5rem;
+            position: sticky;
+            top: 1rem;
+            max-height: calc(100vh - 2rem);
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .sidebar-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #22c55e;
+        }
+
+        .toggle-sidebar {
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-family: inherit;
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .nav-section {
+            margin-bottom: 1rem;
+        }
+
+        .nav-section-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #22c55e;
+            margin-bottom: 0.75rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(34, 197, 94, 0.15);
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 0.75rem;
+            color: #333;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-link:hover {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+        }
+
+        .sidebar-link.active {
+            background: rgba(34, 197, 94, 0.15);
+            color: #22c55e;
+            font-weight: 600;
+        }
+
+        .sidebar-sub-link {
+            padding-right: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .link-number {
+            min-width: 28px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #22c55e;
+        }
+
+        .bpb-content {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .content-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .section-header-with-icon {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header-with-icon h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #22c55e;
+        }
+
+        .section-book-icon {
+            width: 28px;
+            height: 28px;
+            stroke: #22c55e;
+        }
+
+        .content-section h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #333;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .content-section p {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.9;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: rgba(34, 197, 94, 0.05);
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(34, 197, 94, 0.15);
+        }
+
+        .feature-list li strong {
+            color: #22c55e;
+        }
+
+        .feature-icon {
+            width: 8px;
+            height: 8px;
+            min-width: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            margin-top: 8px;
+        }
+
+        .info-box {
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-box-title {
+            font-weight: 700;
+            color: #22c55e;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .warning-box {
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box-title {
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: 0.5rem;
+        }
+
+        .app-card {
+            background: #f8f9fa;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .app-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .app-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .app-subtitle {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .download-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #22c55e;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .download-btn:hover {
+            background: #16a34a;
+            transform: translateY(-2px);
+        }
+
+        .download-btn.secondary {
+            background: transparent;
+            border: 1px solid #22c55e;
+            color: #22c55e;
+        }
+
+        .download-btn.secondary:hover {
+            background: rgba(34, 197, 94, 0.1);
+        }
+
+        .image-container {
+            margin: 1.5rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .mobile-sidebar-toggle {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .bpb-guide-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .bpb-sidebar {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                max-height: 100vh;
+                border-radius: 0;
+                z-index: 1000;
+                transition: right 0.3s ease;
+            }
+
+            .bpb-sidebar.active {
+                right: 0;
+            }
+
+            .sidebar-overlay.active {
+                display: block;
+            }
+
+            .mobile-sidebar-toggle {
+                display: flex;
+                position: fixed;
+                bottom: 2rem;
+                left: 2rem;
+                width: 50px;
+                height: 50px;
+                background: #22c55e;
+                color: white;
+                border: none;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                z-index: 1002;
+                cursor: pointer;
+                box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+            }
+
+            .mobile-sidebar-toggle svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .bpb-container {
+                padding: 1rem;
+            }
+
+            .bpb-content {
+                padding: 1.25rem;
+            }
+
+            .section-header-with-icon h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
     
     <!-- Fix mobile menu and sidebar toggle -->
     <style>
@@ -159,9 +564,6 @@
     </style>
 </head>
 <body>
-    <!-- Header Component -->
-    <div id="header-root"></div>
-
     <!-- Main Content -->
     <main class="bpb-guide-page">
         <!-- Mobile Sidebar Toggle -->
@@ -182,7 +584,7 @@
                     </div>
                     
                     <!-- Back to Home Button -->
-                    <a href="../index.html" class="back-to-home-btn" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1rem; margin: 0 1rem 1rem; background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 8px; color: #22c55e; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease;">
+                    <a href="/home" class="back-to-home-btn" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1rem; margin: 0 1rem 1rem; background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 8px; color: #22c55e; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease;">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                             <polyline points="9 22 9 12 15 12 15 22"></polyline>

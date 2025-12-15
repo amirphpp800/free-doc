@@ -23,7 +23,6 @@ export function createFooter() {
                             <li><a href="#" class="footer-link" id="privacy-link">حریم خصوصی</a></li>
                             <li><a href="/pages/iran-off.html" class="footer-link">ایران در خاموشی</a></li>
                             <li><a href="/pages/bpb-guide.html" class="footer-link">راهنمای BPB Panel</a></li>
-                            <li><a href="/pages/internet-toolkit.html" class="footer-link">جعبه‌ابزار اینترنت</a></li>
                             <li><a href="/pages/internet-disruption-toolkit.html" class="footer-link">جعبه‌ابزار اختلال</a></li>
                         </ul>
                     </div>
@@ -31,14 +30,14 @@ export function createFooter() {
                     <div class="footer-section-inline">
                         <h4 class="footer-column-title">ویکی</h4>
                         <ul class="footer-list-inline footer-wiki-list">
-                            <li><a href="https://cra.ir/" target="_blank" class="footer-link">سازمان تنظیم مقررات</a></li>
-                            <li><a href="https://senf.ir/" target="_blank" class="footer-link">نظام صنفی رایانه‌ای</a></li>
-                            <li><a href="https://sccr.ir/" target="_blank" class="footer-link">شورای عالی فضای مجازی</a></li>
-                            <li><a href="https://www.irib.ir/" target="_blank" class="footer-link">صدا و سیما</a></li>
-                            <li><a href="https://www.parliran.ir/" target="_blank" class="footer-link">مجلس شورای اسلامی</a></li>
-                            <li><a href="https://rc.majlis.ir/" target="_blank" class="footer-link">پژوهش‌های مجلس</a></li>
-                            <li><a href="https://www.farhang.gov.ir/" target="_blank" class="footer-link">وزارت ارشاد</a></li>
-                            <li><a href="https://www.mimt.gov.ir/" target="_blank" class="footer-link">وزارت صمت</a></li>
+                            <li><span class="footer-text">سازمان تنظیم مقررات</span></li>
+                            <li><span class="footer-text">نظام صنفی رایانه‌ای</span></li>
+                            <li><span class="footer-text">شورای عالی فضای مجازی</span></li>
+                            <li><span class="footer-text">صدا و سیما</span></li>
+                            <li><span class="footer-text">مجلس شورای اسلامی</span></li>
+                            <li><span class="footer-text">پژوهش‌های مجلس</span></li>
+                            <li><span class="footer-text">وزارت ارشاد</span></li>
+                            <li><span class="footer-text">وزارت صمت</span></li>
                         </ul>
                     </div>
                 </div>
