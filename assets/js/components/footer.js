@@ -30,14 +30,14 @@ export function createFooter() {
                     <div class="footer-section-inline">
                         <h4 class="footer-column-title">ویکی</h4>
                         <ul class="footer-list-inline footer-wiki-list">
-                            <li><span class="footer-text">سازمان تنظیم مقررات</span></li>
-                            <li><span class="footer-text">نظام صنفی رایانه‌ای</span></li>
-                            <li><span class="footer-text">شورای عالی فضای مجازی</span></li>
-                            <li><span class="footer-text">صدا و سیما</span></li>
-                            <li><span class="footer-text">مجلس شورای اسلامی</span></li>
-                            <li><span class="footer-text">پژوهش‌های مجلس</span></li>
-                            <li><span class="footer-text">وزارت ارشاد</span></li>
-                            <li><span class="footer-text">وزارت صمت</span></li>
+                            <li><a href="/pages/wiki.html" class="footer-link">سازمان تنظیم مقررات</a></li>
+                            <li><a href="/pages/wiki.html" class="footer-link">نظام صنفی رایانه‌ای</a></li>
+                            <li><a href="/pages/wiki.html" class="footer-link">شورای عالی فضای مجازی</a></li>
+                            <li><a href="/pages/wiki.html" class="footer-link">صدا و سیما</a></li>
+                            <li><a href="/pages/wiki.html" class="footer-link">مجلس شورای اسلامی</a></li>
+                            <li><a href="/pages/wiki.html" class="footer-link">پژوهش‌های مجلس</a></li>
+                            <li><a href="/pages/wiki.html" class="footer-link">وزارت ارشاد</a></li>
+                            <li><a href="/pages/wiki.html" class="footer-link">وزارت صمت</a></li>
                         </ul>
                     </div>
                 </div>

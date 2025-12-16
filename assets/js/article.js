@@ -96,10 +96,6 @@ class ArticlePage {
                             <span class="material-symbols-outlined">calendar_today</span>
                             ${article.date}
                         </span>
-                        <span class="meta-item">
-                            <span class="material-symbols-outlined">schedule</span>
-                            ${readTime} دقیقه مطالعه
-                        </span>
                     </div>
                     <div class="article-hero-tags">
                         ${article.tags.map(tag => `<span class="hero-tag">${tag}</span>`).join('')}
