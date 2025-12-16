@@ -1,11 +1,116 @@
 .article-page {
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 0;
     min-height: calc(100vh - 200px);
 }
 
+.article-hero {
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .article-hero {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .article-hero {
+        min-height: 280px;
+    }
+    
+    .article-hero-title {
+        font-size: 22px;
+    }
+    
+    .article-hero-meta {
+        gap: 12px;
+        font-size: 12px;
+    }
+    
+    .article-hero-content {
+        padding: 24px 16px;
+    }
+}
+
+.article-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+.article-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    width: 100%;
+    padding: 40px 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.article-hero-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-family: 'Title', 'IRANSans', sans-serif;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.article-hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.article-hero-meta .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.article-hero-meta .material-symbols-outlined {
+    font-size: 18px;
+}
+
+.article-hero-tags {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.hero-tag {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .article-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
     width: 100%;
 }
 

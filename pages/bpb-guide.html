@@ -359,7 +359,7 @@
             display: none;
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 768px) {
             .bpb-guide-layout {
                 grid-template-columns: 1fr;
             }
@@ -452,14 +452,14 @@
         }
         
         /* Hide mobile sidebar toggle on desktop */
-        @media (min-width: 1025px) {
+        @media (min-width: 769px) {
             .mobile-sidebar-toggle {
                 display: none !important;
             }
         }
         
         /* Show mobile sidebar toggle only on mobile */
-        @media (max-width: 1024px) {
+        @media (max-width: 768px) {
             .mobile-sidebar-toggle {
                 cursor: pointer !important;
                 z-index: 1002 !important;
@@ -1858,20 +1858,5 @@
         }
     </script>
 
-    <!-- Footer Component -->
-    <div id="footer-root"></div>
-
-    <!-- Component Scripts -->
-    <script src="../js/components/header.js"></script>
-    <script src="../js/components/footer.js"></script>
-    <script>
-        // Mount header component
-        const headerComponent = new HeaderComponent();
-        headerComponent.mount('#header-root');
-        
-        // Mount footer component
-        const footerComponent = new FooterComponent();
-        footerComponent.mount('#footer-root');
-    </script>
 </body>
 </html>

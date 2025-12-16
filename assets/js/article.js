@@ -80,30 +80,34 @@ class ArticlePage {
         const main = document.createElement('main');
         main.className = 'article-page';
 
+        const coverImage = article.coverImage || '/assets/images/covers/art1.png';
+        
         main.innerHTML = `
-            <div class="article-container">
-                <article class="article-content">
-                    <header class="article-header-full">
-                        <h1 class="article-title-full">${article.title}</h1>
-                        <div class="article-meta-full">
-                            <span class="meta-item">
-                                <span class="material-symbols-outlined">person</span>
-                                ${article.author}
-                            </span>
-                            <span class="meta-item">
-                                <span class="material-symbols-outlined">calendar_today</span>
-                                ${article.date}
-                            </span>
-                        </div>
-                        <div class="article-tags-full">
-                            ${article.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                        </div>
-                        <div class="estimated-read-time">
+            <div class="article-hero" style="background-image: url('${coverImage}');">
+                <div class="article-hero-overlay"></div>
+                <div class="article-hero-content">
+                    <h1 class="article-hero-title">${article.title}</h1>
+                    <div class="article-hero-meta">
+                        <span class="meta-item">
+                            <span class="material-symbols-outlined">person</span>
+                            ${article.author}
+                        </span>
+                        <span class="meta-item">
+                            <span class="material-symbols-outlined">calendar_today</span>
+                            ${article.date}
+                        </span>
+                        <span class="meta-item">
                             <span class="material-symbols-outlined">schedule</span>
                             ${readTime} دقیقه مطالعه
-                        </div>
-                    </header>
-
+                        </span>
+                    </div>
+                    <div class="article-hero-tags">
+                        ${article.tags.map(tag => `<span class="hero-tag">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            </div>
+            <div class="article-container">
+                <article class="article-content">
                     <div class="article-body">
                         ${article.content}
                     </div>

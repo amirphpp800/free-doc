@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ویکی - دانشنامه آزاد</title>
+    
+    <link rel="icon" type="image/svg+xml" href="/assets/images/logo.svg">
+    <link rel="apple-touch-icon" href="/assets/images/logo.svg">
+    <link rel="shortcut icon" href="/assets/images/logo.svg">
+    
+    <link rel="stylesheet" href="/assets/Font/fontiran.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'IRANSans', 'AbarLowFaNum', Arial, sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            min-height: 100vh;
+            line-height: 1.8;
+        }
+
+        .wiki-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .wiki-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .wiki-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .wiki-logo img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .wiki-logo span {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .wiki-title-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .wiki-title-section h1 {
+            font-size: 2rem;
+            color: #dc2626;
+            margin-bottom: 0.5rem;
+        }
+
+        .wiki-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
+        }
+
+        .english-version-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #dc2626;
+            border-radius: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .english-version-btn:hover {
+            background: #b91c1c;
+        }
+
+        .wiki-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+        
+        .wiki-menu-card {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        
+        .wiki-content-card {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .wiki-content-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2rem;
+            color: #1a1a1a;
+        }
+
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .content-header h2 {
+            font-size: 1.25rem;
+            color: #1a1a1a;
+        }
+
+        .content-header small {
+            color: rgba(0, 0, 0, 0.5);
+            font-size: 0.85rem;
+        }
+
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .content-table tr {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .content-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .content-table td {
+            padding: 1rem 0.5rem;
+            vertical-align: top;
+        }
+
+        .content-table td:first-child {
+            color: rgba(0, 0, 0, 0.5);
+            font-size: 0.9rem;
+            width: 120px;
+        }
+
+        .content-table td:last-child {
+            color: #1a1a1a;
+        }
+
+        .content-table a {
+            color: #dc2626;
+            text-decoration: none;
+        }
+
+        .content-table a:hover {
+            text-decoration: underline;
+        }
+
+        .content-description {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .content-description h3 {
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .content-description p {
+            color: rgba(0, 0, 0, 0.7);
+            line-height: 2;
+        }
+
+        .wiki-menu-card {
+            background: #2a2a2a;
+            border-radius: 16px;
+            padding: 1.5rem;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.875rem 1rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-item.active {
+            background: rgba(220, 38, 38, 0.2);
+            border: 1px solid rgba(220, 38, 38, 0.4);
+        }
+
+        .menu-item-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .menu-icon {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+        .menu-item-title {
+            font-size: 0.95rem;
+        }
+
+        .menu-item-count {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 28px;
+            height: 24px;
+            padding: 0 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        @media (max-width: 1024px) {
+            .wiki-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .wiki-menu-card {
+                position: relative;
+                top: 0;
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .wiki-container {
+                padding: 1rem;
+            }
+
+            .wiki-title-section h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wiki-container">
+        <header class="wiki-header">
+            <a href="/home" class="wiki-logo">
+                <img src="/assets/images/logo.svg" alt="لوگو">
+                <span>دانشنامه آزاد</span>
+            </a>
+            <a href="/home" class="back-btn">
+                <span>← بازگشت به خانه</span>
+            </a>
+        </header>
+
+        <div class="wiki-title-section">
+            <h1>مصوبه ۲۶۶ سازمان تنظیم مقررات و ارتباطات رادیویی</h1>
+            <p class="wiki-subtitle">عنوان</p>
+            <a href="#" class="english-version-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
+                </svg>
+                نسخه انگلیسی
+            </a>
+        </div>
+
+        <div class="wiki-layout">
+            <div class="wiki-menu-card">
+                <a href="#" class="menu-item">
+                    <div class="menu-item-right">
+                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        <span class="menu-item-title">سازمان تنظیم مقررات و ارتباطات رادیویی</span>
+                    </div>
+                    <span class="menu-item-count">۱</span>
+                </a>
+
+                <a href="#" class="menu-item active">
+                    <div class="menu-item-right">
+                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        <span class="menu-item-title">مصوبه ۲۶۶ سازمان تنظیم مقررات و ارتباطات رادیویی</span>
+                    </div>
+                    <span class="menu-item-count">۱</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <div class="menu-item-right">
+                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        <span class="menu-item-title">سازمان نظام صنفی رایانه‌ای</span>
+                    </div>
+                    <span class="menu-item-count">۱</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <div class="menu-item-right">
+                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        <span class="menu-item-title">شورای عالی فضای مجازی</span>
+                    </div>
+                    <span class="menu-item-count">۱۲</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <div class="menu-item-right">
+                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        <span class="menu-item-title">صدا و سیما</span>
+                    </div>
+                    <span class="menu-item-count">۱</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <div class="menu-item-right">
+                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        <span class="menu-item-title">مجلس شورای اسلامی</span>
+                    </div>
+                    <span class="menu-item-count">۳</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <div class="menu-item-right">
+                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        <span class="menu-item-title">مرکز پژوهش‌های مجلس</span>
+                    </div>
+                    <span class="menu-item-count">۱</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <div class="menu-item-right">
+                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        <span class="menu-item-title">وزارت ارشاد و فرهنگ اسلامی</span>
+                    </div>
+                    <span class="menu-item-count">۱</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <div class="menu-item-right">
+                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        <span class="menu-item-title">وزارت صنعت، معدن و تجارت</span>
+                    </div>
+                    <span class="menu-item-count">۱</span>
+                </a>
+            </div>
+
+            <div class="wiki-content-card">
+                <div class="content-header">
+                    <h2>عنوان</h2>
+                    <small>مصوبه ۲۶۶ سازمان تنظیم مقررات و ارتباطات رادیویی</small>
+                </div>
+
+                <table class="content-table">
+                    <tr>
+                        <td>نام دیگر</td>
+                        <td>ندارد</td>
+                    </tr>
+                    <tr>
+                        <td>تاریخ طرح اولیه</td>
+                        <td>۲۱ آبان ۱۳۹۶</td>
+                    </tr>
+                    <tr>
+                        <td>ارایه دهنده</td>
+                        <td><a href="#">کمیسیون تنظیم مقررات ارتباطات (سازمان تنظیم مقررات و ارتباطات رادیویی)</a></td>
+                    </tr>
+                    <tr>
+                        <td>تاریخ به روزرسانی</td>
+                        <td>ندارد</td>
+                    </tr>
+                </table>
+
+                <div class="content-description">
+                    <h3>شرح و تاریخچه</h3>
+                    <p>این مصوبه در راستای تعیین قیمت‌گذاری تعرفه‌های اینترنت در ایران توسط کمیسیون تنظیم مقررات ارتباطات وابسته به سازمان تنظیم مقررات و ارتباطات رادیویی تعیین شده است. این مصوبه به عنوان یک مدل حمایتی برای تحقق اهداف شبکه ملی اطلاعات ۲۱ آذرسال ۹۶ تصویب و کمتر از یک ماه بعد به تمام اپراتورها و شرکت‌های ارائه دهنده خدمات اینترنت ابلاغ شد. ضمناً براساس همین این مصوبه سقف و کف تعرفه‌گذاری اینترنت در ایران را مشخص کرده است.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
