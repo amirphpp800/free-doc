@@ -97,43 +97,89 @@
             font-size: 1rem;
         }
 
-        .english-version-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: #E02F3A;
-            border-radius: 20px;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 0.85rem;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .english-version-btn:hover {
-            background: #c12730;
-        }
-
         .wiki-layout {
             display: grid;
             grid-template-columns: 320px 1fr;
             gap: 2rem;
             align-items: start;
         }
-        
+
         .wiki-menu-card {
-            grid-column: 1;
-            grid-row: 1;
+            background: #161617;
+            border-radius: 16px;
+            padding: 1.5rem;
+            position: sticky;
+            top: 2rem;
         }
-        
+
+        .menu-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #E02F3A;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.875rem 1rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-item.active {
+            background: rgba(224, 47, 58, 0.2);
+            border: 1px solid rgba(224, 47, 58, 0.4);
+        }
+
+        .menu-item-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .menu-icon {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+        .menu-item-title {
+            font-size: 0.95rem;
+        }
+
+        .menu-item-count {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 28px;
+            height: 24px;
+            padding: 0 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
         .wiki-content-card {
-            grid-column: 2;
-            grid-row: 1;
             background: #161617;
             border-radius: 16px;
             padding: 2rem;
             color: #ffffff;
+            min-height: 500px;
         }
 
         .content-header {
@@ -155,9 +201,75 @@
             font-size: 0.85rem;
         }
 
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .breadcrumb-item {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb-item:hover {
+            color: #E02F3A;
+        }
+
+        .breadcrumb-item.active {
+            color: #E02F3A;
+        }
+
+        .breadcrumb-separator {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .resolution-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .resolution-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .resolution-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .resolution-item.active {
+            background: rgba(224, 47, 58, 0.15);
+            border: 1px solid rgba(224, 47, 58, 0.3);
+        }
+
+        .resolution-icon {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+        .resolution-title {
+            font-size: 0.95rem;
+        }
+
         .content-table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 1.5rem;
         }
 
         .content-table tr {
@@ -209,64 +321,21 @@
             line-height: 2;
         }
 
-        .wiki-menu-card {
-            background: #161617;
-            border-radius: 16px;
-            padding: 1.5rem;
-            position: sticky;
-            top: 2rem;
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: rgba(255, 255, 255, 0.5);
         }
 
-        .menu-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.875rem 1rem;
-            margin-bottom: 0.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            text-decoration: none;
-            color: #ffffff;
-            transition: all 0.2s ease;
-            cursor: pointer;
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
         }
 
-        .menu-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .menu-item.active {
-            background: rgba(224, 47, 58, 0.2);
-            border: 1px solid rgba(224, 47, 58, 0.4);
-        }
-
-        .menu-item-right {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .menu-icon {
-            width: 20px;
-            height: 20px;
-            opacity: 0.7;
-        }
-
-        .menu-item-title {
-            font-size: 0.95rem;
-        }
-
-        .menu-item-count {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 28px;
-            height: 24px;
-            padding: 0 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
+        .empty-state p {
+            font-size: 1rem;
         }
 
         @media (max-width: 1024px) {
@@ -300,154 +369,444 @@
                 <span>دانشنامه آزاد</span>
             </a>
             <a href="/home" class="back-btn">
-                <span>← بازگشت به خانه</span>
+                <span>بازگشت به خانه</span>
             </a>
         </header>
 
         <div class="wiki-title-section">
-            <h1>مصوبه ۲۶۶ سازمان تنظیم مقررات و ارتباطات رادیویی</h1>
-            <p class="wiki-subtitle">عنوان</p>
-            <a href="#" class="english-version-btn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
-                </svg>
-                نسخه انگلیسی
-            </a>
+            <h1>ویکی مصوبات</h1>
+            <p class="wiki-subtitle">مجموعه مصوبات سازمان‌های مرتبط با اینترنت در ایران</p>
         </div>
 
         <div class="wiki-layout">
             <div class="wiki-menu-card">
-                <a href="#" class="menu-item">
-                    <div class="menu-item-right">
-                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                        </svg>
-                        <span class="menu-item-title">سازمان تنظیم مقررات و ارتباطات رادیویی</span>
-                    </div>
-                    <span class="menu-item-count">۱</span>
-                </a>
-
-                <a href="#" class="menu-item active">
-                    <div class="menu-item-right">
-                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                        </svg>
-                        <span class="menu-item-title">مصوبه ۲۶۶ سازمان تنظیم مقررات و ارتباطات رادیویی</span>
-                    </div>
-                    <span class="menu-item-count">۱</span>
-                </a>
-
-                <a href="#" class="menu-item">
-                    <div class="menu-item-right">
-                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                        </svg>
-                        <span class="menu-item-title">سازمان نظام صنفی رایانه‌ای</span>
-                    </div>
-                    <span class="menu-item-count">۱</span>
-                </a>
-
-                <a href="#" class="menu-item">
-                    <div class="menu-item-right">
-                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                        </svg>
-                        <span class="menu-item-title">شورای عالی فضای مجازی</span>
-                    </div>
-                    <span class="menu-item-count">۱۲</span>
-                </a>
-
-                <a href="#" class="menu-item">
-                    <div class="menu-item-right">
-                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                        </svg>
-                        <span class="menu-item-title">صدا و سیما</span>
-                    </div>
-                    <span class="menu-item-count">۱</span>
-                </a>
-
-                <a href="#" class="menu-item">
-                    <div class="menu-item-right">
-                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                        </svg>
-                        <span class="menu-item-title">مجلس شورای اسلامی</span>
-                    </div>
-                    <span class="menu-item-count">۳</span>
-                </a>
-
-                <a href="#" class="menu-item">
-                    <div class="menu-item-right">
-                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                        </svg>
-                        <span class="menu-item-title">مرکز پژوهش‌های مجلس</span>
-                    </div>
-                    <span class="menu-item-count">۱</span>
-                </a>
-
-                <a href="#" class="menu-item">
-                    <div class="menu-item-right">
-                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                        </svg>
-                        <span class="menu-item-title">وزارت ارشاد و فرهنگ اسلامی</span>
-                    </div>
-                    <span class="menu-item-count">۱</span>
-                </a>
-
-                <a href="#" class="menu-item">
-                    <div class="menu-item-right">
-                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                        </svg>
-                        <span class="menu-item-title">وزارت صنعت، معدن و تجارت</span>
-                    </div>
-                    <span class="menu-item-count">۱</span>
-                </a>
+                <div class="menu-title">سازمان‌ها</div>
+                <div id="organizationList"></div>
             </div>
 
             <div class="wiki-content-card">
-                <div class="content-header">
-                    <h2>عنوان</h2>
-                    <small>مصوبه ۲۶۶ سازمان تنظیم مقررات و ارتباطات رادیویی</small>
-                </div>
-
-                <table class="content-table">
-                    <tr>
-                        <td>نام دیگر</td>
-                        <td>ندارد</td>
-                    </tr>
-                    <tr>
-                        <td>تاریخ طرح اولیه</td>
-                        <td>۲۱ آبان ۱۳۹۶</td>
-                    </tr>
-                    <tr>
-                        <td>ارایه دهنده</td>
-                        <td><a href="#">کمیسیون تنظیم مقررات ارتباطات (سازمان تنظیم مقررات و ارتباطات رادیویی)</a></td>
-                    </tr>
-                    <tr>
-                        <td>تاریخ به روزرسانی</td>
-                        <td>ندارد</td>
-                    </tr>
-                </table>
-
-                <div class="content-description">
-                    <h3>شرح و تاریخچه</h3>
-                    <p>این مصوبه در راستای تعیین قیمت‌گذاری تعرفه‌های اینترنت در ایران توسط کمیسیون تنظیم مقررات ارتباطات وابسته به سازمان تنظیم مقررات و ارتباطات رادیویی تعیین شده است. این مصوبه به عنوان یک مدل حمایتی برای تحقق اهداف شبکه ملی اطلاعات ۲۱ آذرسال ۹۶ تصویب و کمتر از یک ماه بعد به تمام اپراتورها و شرکت‌های ارائه دهنده خدمات اینترنت ابلاغ شد. ضمناً براساس همین این مصوبه سقف و کف تعرفه‌گذاری اینترنت در ایران را مشخص کرده است.</p>
-                </div>
+                <div id="contentArea"></div>
             </div>
         </div>
     </div>
 
     <script>
-        document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('click', function(e) {
-                document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
-                this.classList.add('active');
+        const wikiData = {
+            organizations: [
+                {
+                    id: 'tanzim',
+                    name: 'سازمان تنظیم مقررات و ارتباطات رادیویی',
+                    resolutions: [
+                        {
+                            id: 'res-266',
+                            title: 'مصوبه ۲۶۶',
+                            otherName: 'ندارد',
+                            date: '۲۱ آبان ۱۳۹۶',
+                            provider: 'کمیسیون تنظیم مقررات ارتباطات',
+                            updateDate: 'ندارد',
+                            description: 'این مصوبه در راستای تعیین قیمت‌گذاری تعرفه‌های اینترنت در ایران توسط کمیسیون تنظیم مقررات ارتباطات وابسته به سازمان تنظیم مقررات و ارتباطات رادیویی تعیین شده است. این مصوبه به عنوان یک مدل حمایتی برای تحقق اهداف شبکه ملی اطلاعات ۲۱ آذرسال ۹۶ تصویب و کمتر از یک ماه بعد به تمام اپراتورها و شرکت‌های ارائه دهنده خدمات اینترنت ابلاغ شد. ضمناً براساس همین این مصوبه سقف و کف تعرفه‌گذاری اینترنت در ایران را مشخص کرده است.'
+                        }
+                    ]
+                },
+                {
+                    id: 'senfi',
+                    name: 'سازمان نظام صنفی رایانه‌ای',
+                    resolutions: [
+                        {
+                            id: 'senfi-1',
+                            title: 'مقررات صنفی',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'سازمان نظام صنفی رایانه‌ای',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات مربوط به این مصوبه در حال تکمیل است.'
+                        }
+                    ]
+                },
+                {
+                    id: 'shora',
+                    name: 'شورای عالی فضای مجازی',
+                    resolutions: [
+                        {
+                            id: 'shora-1',
+                            title: 'مصوبه اول',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'شورای عالی فضای مجازی',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        },
+                        {
+                            id: 'shora-2',
+                            title: 'مصوبه دوم',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'شورای عالی فضای مجازی',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        },
+                        {
+                            id: 'shora-3',
+                            title: 'مصوبه سوم',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'شورای عالی فضای مجازی',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        },
+                        {
+                            id: 'shora-4',
+                            title: 'مصوبه چهارم',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'شورای عالی فضای مجازی',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        },
+                        {
+                            id: 'shora-5',
+                            title: 'مصوبه پنجم',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'شورای عالی فضای مجازی',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        },
+                        {
+                            id: 'shora-6',
+                            title: 'مصوبه ششم',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'شورای عالی فضای مجازی',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        },
+                        {
+                            id: 'shora-7',
+                            title: 'مصوبه هفتم',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'شورای عالی فضای مجازی',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        },
+                        {
+                            id: 'shora-8',
+                            title: 'مصوبه هشتم',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'شورای عالی فضای مجازی',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        },
+                        {
+                            id: 'shora-9',
+                            title: 'مصوبه نهم',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'شورای عالی فضای مجازی',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        },
+                        {
+                            id: 'shora-10',
+                            title: 'مصوبه دهم',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'شورای عالی فضای مجازی',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        },
+                        {
+                            id: 'shora-11',
+                            title: 'مصوبه یازدهم',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'شورای عالی فضای مجازی',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        },
+                        {
+                            id: 'shora-12',
+                            title: 'مصوبه دوازدهم',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'شورای عالی فضای مجازی',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        }
+                    ]
+                },
+                {
+                    id: 'seda',
+                    name: 'صدا و سیما',
+                    resolutions: [
+                        {
+                            id: 'seda-1',
+                            title: 'مقررات پخش',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'صدا و سیما',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        }
+                    ]
+                },
+                {
+                    id: 'majles',
+                    name: 'مجلس شورای اسلامی',
+                    resolutions: [
+                        {
+                            id: 'majles-1',
+                            title: 'قانون اول',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'مجلس شورای اسلامی',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        },
+                        {
+                            id: 'majles-2',
+                            title: 'قانون دوم',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'مجلس شورای اسلامی',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        },
+                        {
+                            id: 'majles-3',
+                            title: 'قانون سوم',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'مجلس شورای اسلامی',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        }
+                    ]
+                },
+                {
+                    id: 'pazhohesh',
+                    name: 'مرکز پژوهش‌های مجلس',
+                    resolutions: [
+                        {
+                            id: 'pazh-1',
+                            title: 'گزارش پژوهشی',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'مرکز پژوهش‌های مجلس',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        }
+                    ]
+                },
+                {
+                    id: 'ershad',
+                    name: 'وزارت ارشاد و فرهنگ اسلامی',
+                    resolutions: [
+                        {
+                            id: 'ershad-1',
+                            title: 'بخشنامه فرهنگی',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'وزارت ارشاد و فرهنگ اسلامی',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        }
+                    ]
+                },
+                {
+                    id: 'samat',
+                    name: 'وزارت صنعت، معدن و تجارت',
+                    resolutions: [
+                        {
+                            id: 'samat-1',
+                            title: 'مقررات تجاری',
+                            otherName: 'ندارد',
+                            date: 'در دست تکمیل',
+                            provider: 'وزارت صنعت، معدن و تجارت',
+                            updateDate: 'ندارد',
+                            description: 'اطلاعات در حال تکمیل است.'
+                        }
+                    ]
+                }
+            ]
+        };
+
+        let currentState = {
+            selectedOrg: null,
+            selectedResolution: null
+        };
+
+        function toPersianNumber(num) {
+            const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+            return num.toString().replace(/\d/g, d => persianDigits[d]);
+        }
+
+        function saveState() {
+            localStorage.setItem('wikiState', JSON.stringify(currentState));
+        }
+
+        function loadState() {
+            const saved = localStorage.getItem('wikiState');
+            if (saved) {
+                try {
+                    currentState = JSON.parse(saved);
+                } catch (e) {
+                    currentState = { selectedOrg: null, selectedResolution: null };
+                }
+            }
+        }
+
+        function renderOrganizations() {
+            const container = document.getElementById('organizationList');
+            container.innerHTML = '';
+
+            wikiData.organizations.forEach(org => {
+                const item = document.createElement('div');
+                item.className = 'menu-item' + (currentState.selectedOrg === org.id ? ' active' : '');
+                item.innerHTML = `
+                    <div class="menu-item-right">
+                        <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        <span class="menu-item-title">${org.name}</span>
+                    </div>
+                    <span class="menu-item-count">${toPersianNumber(org.resolutions.length)}</span>
+                `;
+                item.addEventListener('click', () => selectOrganization(org.id));
+                container.appendChild(item);
             });
-        });
+        }
+
+        function selectOrganization(orgId) {
+            currentState.selectedOrg = orgId;
+            currentState.selectedResolution = null;
+            saveState();
+            renderOrganizations();
+            renderContent();
+        }
+
+        function selectResolution(resId) {
+            currentState.selectedResolution = resId;
+            saveState();
+            renderContent();
+        }
+
+        function renderContent() {
+            const container = document.getElementById('contentArea');
+            
+            if (!currentState.selectedOrg) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        <p>یک سازمان را از لیست سمت راست انتخاب کنید</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const org = wikiData.organizations.find(o => o.id === currentState.selectedOrg);
+            if (!org) return;
+
+            if (!currentState.selectedResolution) {
+                let html = `
+                    <div class="content-header">
+                        <h2>${org.name}</h2>
+                        <small>${toPersianNumber(org.resolutions.length)} مصوبه</small>
+                    </div>
+                    <div class="resolution-list">
+                `;
+
+                org.resolutions.forEach(res => {
+                    html += `
+                        <div class="resolution-item" onclick="selectResolution('${res.id}')">
+                            <svg class="resolution-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                            </svg>
+                            <span class="resolution-title">${res.title}</span>
+                        </div>
+                    `;
+                });
+
+                html += '</div>';
+                container.innerHTML = html;
+            } else {
+                const res = org.resolutions.find(r => r.id === currentState.selectedResolution);
+                if (!res) return;
+
+                container.innerHTML = `
+                    <div class="breadcrumb">
+                        <span class="breadcrumb-item" onclick="selectOrganization('${org.id}')">${org.name}</span>
+                        <span class="breadcrumb-separator">/</span>
+                        <span class="breadcrumb-item active">${res.title}</span>
+                    </div>
+                    <div class="content-header">
+                        <h2>${res.title}</h2>
+                        <small>${org.name}</small>
+                    </div>
+
+                    <table class="content-table">
+                        <tr>
+                            <td>نام دیگر</td>
+                            <td>${res.otherName}</td>
+                        </tr>
+                        <tr>
+                            <td>تاریخ طرح اولیه</td>
+                            <td>${res.date}</td>
+                        </tr>
+                        <tr>
+                            <td>ارایه دهنده</td>
+                            <td>${res.provider}</td>
+                        </tr>
+                        <tr>
+                            <td>تاریخ به روزرسانی</td>
+                            <td>${res.updateDate}</td>
+                        </tr>
+                    </table>
+
+                    <div class="content-description">
+                        <h3>شرح و تاریخچه</h3>
+                        <p>${res.description}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function saveScrollPosition() {
+            currentState.scrollTop = window.scrollY;
+            saveState();
+        }
+
+        function restoreScrollPosition() {
+            if (currentState.scrollTop) {
+                setTimeout(() => {
+                    window.scrollTo(0, currentState.scrollTop);
+                }, 50);
+            }
+        }
+
+        window.addEventListener('scroll', debounce(saveScrollPosition, 200));
+        window.addEventListener('beforeunload', saveScrollPosition);
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        loadState();
+        renderOrganizations();
+        renderContent();
+        restoreScrollPosition();
     </script>
 </body>
 </html>

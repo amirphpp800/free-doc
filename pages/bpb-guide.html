@@ -344,6 +344,177 @@
             display: block;
         }
 
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .apps-grid .app-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1.25rem 1rem;
+            margin: 0;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .apps-grid .app-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .app-icon-img {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            object-fit: cover;
+            margin-bottom: 0.75rem;
+        }
+
+        .apps-grid .app-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #333;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .app-platform-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.8rem;
+            color: #666;
+            background: rgba(34, 197, 94, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+        }
+
+        .platform-icon {
+            width: 14px;
+            height: 14px;
+        }
+
+        .app-card-multi {
+            background: #f8f9fa;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .app-card-multi .app-download-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .download-btn-secondary {
+            background: transparent !important;
+            border: 1px solid #22c55e !important;
+            color: #22c55e !important;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: #ffffff;
+        }
+
+        .cta-box h3 {
+            color: #22c55e;
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 10px;
+            color: #22c55e;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: rgba(34, 197, 94, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .wizard-image-container {
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            background: #fff;
+        }
+
+        .wizard-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .yellow-icon {
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .yellow-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .info-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+        }
+
+        .info-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .info-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-content ul {
+            margin: 0.5rem 0 0 1rem;
+            padding: 0;
+        }
+
+        .info-content ul li {
+            margin-bottom: 0.25rem;
+        }
+
         .sidebar-overlay {
             display: none;
             position: fixed;
