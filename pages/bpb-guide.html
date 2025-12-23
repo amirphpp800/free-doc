@@ -82,15 +82,15 @@
         }
 
         .bpb-sidebar {
-            background: #ffffff;
-            border-radius: 16px;
+            background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+            border-radius: 20px;
             padding: 1.5rem;
             position: sticky;
             top: 1rem;
             max-height: calc(100vh - 2rem);
             overflow-y: auto;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(34, 197, 94, 0.2);
+            box-shadow: 0 8px 32px rgba(34, 197, 94, 0.08);
+            border: 1.5px solid rgba(34, 197, 94, 0.15);
         }
 
         .sidebar-header {
@@ -149,14 +149,17 @@
         }
 
         .sidebar-link:hover {
-            background: rgba(34, 197, 94, 0.1);
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.05) 100%);
             color: #22c55e;
+            border-radius: 10px;
         }
 
         .sidebar-link.active {
-            background: rgba(34, 197, 94, 0.15);
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(34, 197, 94, 0.08) 100%);
             color: #22c55e;
             font-weight: 600;
+            border-left: 3px solid #22c55e;
+            padding-left: calc(0.75rem - 3px);
         }
 
         .sidebar-sub-link {
@@ -178,11 +181,11 @@
         }
 
         .bpb-content {
-            background: #ffffff;
-            border-radius: 16px;
+            background: linear-gradient(to bottom, #ffffff 0%, #f9fafb 100%);
+            border-radius: 20px;
             padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(34, 197, 94, 0.08);
         }
 
         .content-section {
@@ -237,11 +240,18 @@
             display: flex;
             align-items: flex-start;
             gap: 0.75rem;
-            padding: 0.75rem 1rem;
-            background: rgba(34, 197, 94, 0.05);
-            border-radius: 10px;
-            margin-bottom: 0.5rem;
-            border: 1px solid rgba(34, 197, 94, 0.15);
+            padding: 1rem 1.25rem;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(34, 197, 94, 0.02) 100%);
+            border-radius: 12px;
+            margin-bottom: 0.75rem;
+            border: 1.5px solid rgba(34, 197, 94, 0.2);
+            transition: all 0.2s ease;
+        }
+        
+        .feature-list li:hover {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.12) 0%, rgba(34, 197, 94, 0.05) 100%);
+            border-color: rgba(34, 197, 94, 0.35);
+            transform: translateX(-2px);
         }
 
         .feature-list li strong {
@@ -258,11 +268,12 @@
         }
 
         .info-box {
-            background: rgba(34, 197, 94, 0.08);
-            border: 1px solid rgba(34, 197, 94, 0.25);
-            border-radius: 12px;
-            padding: 1.25rem;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.12) 0%, rgba(34, 197, 94, 0.04) 100%);
+            border: 1.5px solid rgba(34, 197, 94, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
             margin: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.08);
         }
 
         .info-box-title {
@@ -275,11 +286,12 @@
         }
 
         .warning-box {
-            background: rgba(245, 158, 11, 0.08);
-            border: 1px solid rgba(245, 158, 11, 0.25);
-            border-radius: 12px;
-            padding: 1.25rem;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(245, 158, 11, 0.04) 100%);
+            border: 1.5px solid rgba(245, 158, 11, 0.35);
+            border-radius: 16px;
+            padding: 1.5rem;
             margin: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.08);
         }
 
         .warning-box-title {
@@ -289,11 +301,20 @@
         }
 
         .app-card {
-            background: #f8f9fa;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+            border: 1px solid rgba(34, 197, 94, 0.15);
+            border-radius: 16px;
             padding: 1.5rem;
             margin: 1rem 0;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .app-card:hover {
+            background: linear-gradient(135deg, #ffffff 0%, #f0fbff 100%);
+            border-color: rgba(34, 197, 94, 0.3);
+            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.15);
+            transform: translateY(-2px);
         }
 
         .app-card-header {
@@ -332,19 +353,21 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: #22c55e;
+            padding: 0.7rem 1.25rem;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 0.85rem;
             font-weight: 600;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
         }
 
         .download-btn:hover {
-            background: #16a34a;
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, #2dd868 0%, #22c55e 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
         }
 
         .download-btn.secondary {
@@ -382,15 +405,19 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 1.25rem 1rem;
+            padding: 1.5rem 1.25rem;
             margin: 0;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #ffffff 0%, #f8feff 100%);
+            border: 1.5px solid rgba(34, 197, 94, 0.2);
         }
 
         .apps-grid .app-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(34, 197, 94, 0.2), 0 4px 8px rgba(34, 197, 94, 0.1);
+            border-color: rgba(34, 197, 94, 0.4);
+            background: linear-gradient(135deg, #ffffff 0%, #f0fbff 100%);
         }
 
         .app-icon-img {
@@ -447,12 +474,13 @@
         }
 
         .cta-box {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 16px;
-            padding: 2rem;
+            background: linear-gradient(135deg, #1a472a 0%, #0f3a1f 100%);
+            border: 1.5px solid rgba(34, 197, 94, 0.4);
+            border-radius: 20px;
+            padding: 2.5rem;
             margin: 2rem 0;
             color: #ffffff;
+            box-shadow: 0 8px 32px rgba(34, 197, 94, 0.2);
         }
 
         .cta-box h3 {
@@ -469,19 +497,22 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: rgba(34, 197, 94, 0.15);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 10px;
-            color: #22c55e;
+            padding: 0.9rem 1.8rem;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.25) 0%, rgba(34, 197, 94, 0.15) 100%);
+            border: 1.5px solid rgba(34, 197, 94, 0.5);
+            border-radius: 12px;
+            color: #2dd868;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s ease;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15);
         }
 
         .cta-button:hover {
-            background: rgba(34, 197, 94, 0.25);
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.35) 0%, rgba(34, 197, 94, 0.25) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.25);
+            border-color: rgba(34, 197, 94, 0.7);
         }
 
         .wizard-image-container {
