@@ -44,7 +44,7 @@ export function createFooter() {
             </div>
             
             <div class="footer-bottom">
-                <p class="footer-copyright">© ۱۴۰۴ بهرام کاظمی - تمامی حقوق محفوظ است</p>
+                <p class="footer-copyright">© ۱۴۰۴ فیلتربین - تمامی حقوق محفوظ است</p>
             </div>
         </div>
     `;
@@ -92,7 +92,7 @@ function showPrivacyModal() {
                 <div class="privacy-footer">
                     <p>
                         <img src="${logoPath}" alt="لوگو" class="footer-logo" style="height: 20px; vertical-align: middle; margin-left: 6px;">
-                        دانشنامه آزاد - بهرام کاظمی
+                        دانشنامه آزاد - فیلتربین
                     </p>
                 </div>
             </div>

@@ -13,7 +13,7 @@ export function createHeader() {
         <div class="header-content">
             <h1 class="header-title">
                 <img src="${logoPath}" alt="لوگو" class="header-logo">
-                دانشنامه آزاد - بهرام کاظمی
+                دانشنامه آزاد - فیلتربین
             </h1>
             <div class="checkbox-wrapper-54">
                 <label class="switch">
